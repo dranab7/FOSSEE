@@ -1,0 +1,189 @@
+# Read the data file
+data <- read.csv (file.choose (), header = T)
+y <- data.frame (data $ first, data $ second)
+
+# Create a network
+inetha <- graph.data.frame (y, directed = T)
+V (net)
+E (net)
+V (net) $ label <- V (net) $ name
+V (net) $ degree <- degree (net)
+
+# Histogram node degree
+hist (V (net) $ degree,
+     icol = 'green',
+     main = 'Histogram for Node Degree',
+     ylab = 'Frequency',
+     xlab = 'Viewing qualifications')
+
+# Drawing of a network
+set.seed (222)
+structure (net,
+     vertex.color = 'green',
+     vertext.size = 2,
+     edge.arrow.size = 0.1,
+     vertex.label.cex = 0.8)
+
+# Highlighting degrees & layouts
+plot(net,
+     vertex.color = rainbow(52),
+     vertex.size = V(net)$degree*0.4,
+     edge.arrow.size = 0.1,
+     layout=layout.fruchterman.reingold)
+plot(net,
+     vertex.color = rainbow(52),
+     vertex.size = V(net)$degree*0.4,
+     edge.arrow.size = 0.1,
+     layout=layout.graphopt)
+plot(net,
+     vertex.color = rainbow(52),
+     vertex.size = V(net)$degree*0.4,
+     edge.arrow.size = 0.1,
+     layout=layout.kamada.kawai)
+
+# Hub and officials
+hs <- hub_score (net) $ vector
+such as <- authority.score (net) $ vector
+par (mfrow = c (1,2))
+set.seed (123)
+structure (net,
+     vertex.size = hs * 30,
+     main = 'Hubs',
+     vertex.color = rainbow (52),
+     edge.arrow.size = 0.1,
+     layout = layout.kamada.kawai)
+set.seed (123)
+structure (net,
+     vertex.size=as*30,
+     main = 'Authorities',
+     vertex.color = rainbow(52),
+     edge.arrow.size=0.1,
+     layout = layout.kamada.kawai)
+par(mfrow=c(1,1))
+
+# Community detection
+net <- graph.data.frame(y, directed = F)
+cnet <- cluster_edge_betweenness(net)
+plot(cnet,
+     net,
+     vertex.size = 10,
+     vertex.label.cex = 0.8)
+
+
+
+
+
+
+
+Metrics of actor centrality include: 
+•	degree 
+(number of connections) 
+•	betweenness 
+(number of shortest paths an actor is on) 
+•	closeness 
+(relative distance to all other actors) 
+•	eigenvector centrality 
+(leading eigenvector of sociomatrix) 
+
+Calculating Centrality Measures 
+metrics <- data.frame(  deg=degree(igraph), # degree 
+bet=betweenness(igraph), # betweenness 
+clo=closeness(igraph), # closeness  eig=evcent(igraph)$vector, # eig.cent.  cor=graph.coreness(igraph) # coreness 
+) 
+
+
+Plot (network,
+     Edge. Color = representative (c ("red", "pink"), 5),
+     Edge.width = seq (1,10),
+     Edge.arrow.size = 1,
+     Edge.arrow.width = 1,
+     Edge.lty = c ("solid")
+     (FALSE sets it to 0 and TRUE to 0.5)
+,
+Equals (bg = "black")
+
+Plot (network,
+     
+     # === Top
+     vertex.color = rgb (0.8,0.4,0.3,0.8),
+     vertex.frame.color = "White",
+     vertex.shape = "circle",
+     Head size = 14,
+     vertex.size2 = NA,
+     
+     # === Top label
+     vertex.label = characters [1:10],
+     vertex.label.color = "white",
+     vertex.label.family = "Times",
+     vertex.label.font = 2,
+     vertex.label.cex = 1,
+     vertex.label.dist = 0,
+     vertex.label.degree = 0,
+     
+     # === Torrent
+     Edge. Color = "white",
+     Edge. Width = 4,
+     Edge.arrow.size = 1,
+     Edge.arrow.width = 1,
+     Edge.lty = "solid",
+     Edge.amp = 0.3,
+
+
+Libraries (Arcolor Brewer)
+coul <- brewer.pal (nlevels (as.factor (mtcars $ cyl)), "Set2")
+my_color <- coul [as.numeric (as.factor (mtcars $ cyl))]]
+Equals (bg = "gray 13", mar = c (0,0,0,0))
+set.seed (4)
+Plot (network,
+     Head size = 12,
+     vertex.color = my_color,
+     vertex.label.cex = 0.7,
+     vertex.label.color = "white",
+     vertex.frame.color = "Transparent"
+,
+Text (0,0, "mtcars network", col = "white", cex = 1.5)
+Legend (x = -0.2, y = -0.12,
+       legend = paste (level (as.factor (mtcars $ cyl)), "cylinder", sept = ""),
+       Colonel = Kaul,
+       bty = "n", pch = 20, pt.cex = 2, cex = 1,
+       text.col = "white", horiz = F)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
